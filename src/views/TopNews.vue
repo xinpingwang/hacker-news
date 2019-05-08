@@ -13,7 +13,7 @@
       <button v-show="currentPage - 1 > 0" @click="gotoPage(currentPage - 1)">
         {{currentPage - 1}}
       </button>
-      <span style="padding-left: 4px; padding-right: 4px; font-size:11px">
+      <span style="padding-left: 4px; padding-right: 4px;">
         {{ currentPage }}
       </span>
       <button v-show="currentPage + 1 < totalPages" @click="gotoPage(currentPage + 1)">

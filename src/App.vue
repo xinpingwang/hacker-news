@@ -1,18 +1,33 @@
 <template>
   <div id="app">
-    <top-news/>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href>Hacker News</a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <div class="navbar-nav">
+            <a class="nav-item nav-link active" href="#">
+              Top
+            </a>
+            <a class="nav-item nav-link" href="#">New</a>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="container-fluid" style="padding-top: 26px">
+      <top-news/>
+    </div>
   </div>
 </template>
 
 <script>
-import TopNews from './views/TopNews.vue'
-
+import TopNews from "./views/TopNews.vue";
+require("bootstrap/dist/css/bootstrap.min.css");
 export default {
-  name: 'app',
+  name: "app",
   components: {
     TopNews
   }
-}
+};
 </script>
 
 <style>
