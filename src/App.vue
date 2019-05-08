@@ -14,7 +14,7 @@
       </nav>
     </header>
     <div class="container-fluid" style="padding-top: 26px">
-      <top-news/>
+      <router-view></router-view>
     </div>
   </div>
 </template>
