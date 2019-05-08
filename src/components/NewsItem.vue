@@ -1,6 +1,8 @@
 <template>
   <div>
-    <div>{{newsDetail.title}}</div>
+    <div>
+      <a :href="newsDetail.url" target="_blank">{{newsDetail.title}}</a>
+    </div>
     <div>
       <span>by {{newsDetail.by}}, at {{new Date(newsDetail.time * 1000).toLocaleString()}} | {{newsDetail.kids.length}} comments</span>
     </div>
