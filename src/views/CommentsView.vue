@@ -1,23 +1,26 @@
 <template>
   <div>
     <div>
-      <a :href="newsDetail.url" target="_blank">{{newsDetail.title}}</a>
+      <div>
+        <h2>{{newsDetail.title}}</h2>
+      </div>
+      <div>
+        <span>by {{newsDetail.by}}, at {{new Date(newsDetail.time * 1000).toLocaleString()}}</span>
+      </div>
     </div>
-    <div>
-      <span>by {{newsDetail.by}}, at {{new Date(newsDetail.time * 1000).toLocaleString()}} |</span>
-      <router-link :to="{name: 'item', params: { id: newsDetail.id }}">
-        {{newsDetail.kids.length}} comments
-      </router-link>
+    <div style="margin-top: 26px">
+      <comments-list :comments-ids="newsDetail.kids"/>
     </div>
   </div>
 </template>
 
 <script>
 const axios = require("axios");
+import CommentsList from "@/components/CommentsList.vue";
 
 export default {
-  name: "NewsItem",
-  props: { newsId: Number },
+  name: "CommentsView",
+  components: { CommentsList },
   data() {
     return {
       newsDetail: {
@@ -36,7 +39,9 @@ export default {
   mounted() {
     axios
       .get(
-        "https://hacker-news.firebaseio.com/v0/item/" + this.newsId + ".json"
+        "https://hacker-news.firebaseio.com/v0/item/" +
+          this.$route.params.id +
+          ".json"
       )
       .then(response => {
         this.newsDetail = response.data;
