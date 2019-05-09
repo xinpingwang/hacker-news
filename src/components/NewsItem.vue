@@ -4,9 +4,9 @@
       <a :href="newsDetail.url" target="_blank">{{newsDetail.title}}</a>
     </div>
     <div>
-      <span>by {{newsDetail.by}}, at {{new Date(newsDetail.time * 1000).toLocaleString()}} |</span>
-      <router-link :to="{name: 'item', params: { id: newsDetail.id }}">
-        {{newsDetail.kids.length}} comments
+      <span>by {{newsDetail.by}}, at {{new Date(newsDetail.time * 1000).toLocaleString()}}</span>
+      <router-link :to="{name: 'item', params: { id: newsDetail.id }}" v-if="newsDetail.kids">
+        | {{newsDetail.kids.length}} comments
       </router-link>
     </div>
   </div>
