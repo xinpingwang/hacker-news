@@ -5,10 +5,8 @@
         <a class="navbar-brand" href>Hacker News</a>
         <div class="collapse navbar-collapse" id="navbarNav">
           <div class="navbar-nav">
-            <a class="nav-item nav-link active" href="#">
-              Top
-            </a>
-            <a class="nav-item nav-link" href="#">New</a>
+            <router-link class="nav-item nav-link" :to="{ path: '/'}">Top</router-link>
+            <router-link class="nav-item nav-link" :to="{ path: '/new'}">New</router-link>
           </div>
         </div>
       </nav>
@@ -22,6 +20,7 @@
 <script>
 import TopNews from "./views/TopNews.vue";
 require("bootstrap/dist/css/bootstrap.min.css");
+
 export default {
   name: "app"
 };
