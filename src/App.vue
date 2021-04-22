@@ -18,8 +18,6 @@
 </template>
 
 <script>
-import TopNews from "./views/TopNews.vue";
-require("bootstrap/dist/css/bootstrap.min.css");
 
 export default {
   name: "app"
