@@ -4,7 +4,7 @@ import router from './router'
 
 Vue.config.productionTip = false
 
-import "bootstrap/dist/css/bootstrap.min.css";
+import "@tailwindcss/postcss7-compat/tailwind.css"
 
 new Vue({
   router,
