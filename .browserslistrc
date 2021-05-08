@@ -5,5 +5,5 @@
 # You can see what browsers were selected by your queries by running:
 #   npx browserslist
 
-"> 1%",
-"last 2 versions"
+> 1%
+last 2 versions
