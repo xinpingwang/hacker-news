@@ -5,35 +5,18 @@
         <news-item :news-id="news" />
       </li>
     </ul>
-    <div>
-      <button :disabled="currentPage === 0" @click="previousPage">Previous</button>
-      <button v-show="currentPage - 2 > 0" @click="gotoPage(currentPage - 2)">
-        {{ currentPage - 2 }}
-      </button>
-      <button v-show="currentPage - 1 > 0" @click="gotoPage(currentPage - 1)">
-        {{ currentPage - 1 }}
-      </button>
-      <span style="padding-left: 4px; padding-right: 4px">
-        {{ currentPage }}
-      </span>
-      <button v-show="currentPage + 1 < totalPages" @click="gotoPage(currentPage + 1)">
-        {{ currentPage + 1 }}
-      </button>
-      <button v-show="currentPage + 2 < totalPages" @click="gotoPage(currentPage + 2)">
-        {{ currentPage + 2 }}
-      </button>
-      <button @click="nextPage">Next</button>
-    </div>
+    <pagination :currentPage="currentPage" @currentPageChange="gotoPage"></pagination>
   </div>
 </template>
 
 <script>
   const axios = require("axios");
   import NewsItem from "@/components/NewsItem.vue";
+  import Pagination from "@/components/Pagination.vue";
 
   export default {
     name: "TopNews",
-    components: { NewsItem },
+    components: { NewsItem, Pagination },
     data() {
       return {
         allNewsList: [],
@@ -52,12 +35,6 @@
       },
     },
     methods: {
-      previousPage: function () {
-        this.currentPage--;
-      },
-      nextPage: function () {
-        this.currentPage++;
-      },
       gotoPage: function (target) {
         this.currentPage = target;
       },
